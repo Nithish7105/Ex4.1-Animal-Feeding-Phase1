@@ -1,4 +1,4 @@
-# Ex4.1-Animal-Feeding-Phase1
+# Ex3.1-Animal-Feeding-Phase1
 ## Aim :
 
 To develop a animal feeding game-Phase-1 using unity.
@@ -58,17 +58,18 @@ Select all three animals in the hierarchy and Add Component > Drag the Move Forw
 Edit their speed values and test to see how it looks. Drag all three animals into the Prefabs folder, choosing “Original Prefab”
 
 ## Program:
-# Player Control
+
+## PLAYER CONTROL:
 ```
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed = 10.0f;
-    public float xRange = 5.0f;
+    public float speed=10.0f;
+    public float xRange=25.0f;
     public GameObject projectilePrefab;
     // Start is called before the first frame update
     void Start()
@@ -80,23 +81,23 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if (transform.position.x < -xRange)
-
-
+        {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
         if (transform.position.x > xRange)
+        {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
-
+        }
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-        if(Input.GetKeyDown(KeyCode.Space))
-        
-            // Launch a projectile from the player
+        if (Input.GetKeyDown(KeyCode.Space))
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-        
     }
 }
+
 ```
-# Moving Forward:
+
+## MOVING FORWARD:
 ```
 using System.Collections;
 using System.Collections.Generic;
@@ -104,7 +105,7 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public float speed=1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -114,13 +115,16 @@ public class MoveForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(Vector3.forward*Time.deltaTime*speed);
     }
 }
+
+
 ```
+
 ## Output:
-<img width="1459" height="706" alt="image" src="https://github.com/user-attachments/assets/f277aafc-566c-4047-9632-ccb01f0323ef" />
-<img width="1919" height="1134" alt="image" src="https://github.com/user-attachments/assets/e853d461-a1a5-43cb-b251-4e6874492c11" />
+
+![WhatsApp Image 2025-10-28 at 21 55 31_441f8761](https://github.com/user-attachments/assets/0622ad5c-1034-4ae2-9847-54d53ba0e20b)
 
 ## Result:
 Thus,Animal feeding game-Phase-1 using unity is developed successfully.
